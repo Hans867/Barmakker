@@ -1,8 +1,23 @@
+
 body {
     background-image: url("bar2.jpg");
     background-size: cover;
     background-attachment: fixed;
     padding: 10px;
+}
+
+#computerBackgroundVid {
+    position: fixed;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+
+    z-index: -1;
+}
+
+#mobileBackgroundVid {
+    display: none;
 }
 
 header {
@@ -27,7 +42,8 @@ span {
 
 
 
-/* Title & logo */
+
+/* Title - logo */
 
 .headerTitleLogo {
     width: 50%;
@@ -59,10 +75,11 @@ h1 {
 
 
 
+
 /* Navbar section & button */
 
 .navBar {
-    width: 135px;
+    width: 270px;
     height: 35px;
 
     background-color: rgba(114, 114, 114, 0.5);
@@ -70,7 +87,7 @@ h1 {
     padding: 5px;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .navBar button{
@@ -91,6 +108,10 @@ button:hover {
     background-color: rgb(230, 57, 70, 0.5);
     transform: scale(0.9);
 }
+
+
+
+
 
 
 /* Welcome section */
@@ -117,6 +138,7 @@ button:hover {
 
     font-size: 27px;
 }
+
 
 
 
@@ -162,7 +184,6 @@ h4 {
     font-size: 25px;
 }
 
-
 .favoriteBarText {
     display: flex;
     justify-content: center;
@@ -183,7 +204,6 @@ h4 {
 
 
 
-
 /* Sign in pop up */
 
 .signInPopUp {
@@ -196,7 +216,7 @@ h4 {
     z-index: 10;
 
     border-radius: 15px;
-    width: 400px;
+    width: 350px;
     background-color: rgba(114, 114, 114, 0.95);
 
     font-family: michromaregular;
@@ -234,6 +254,10 @@ h4 {
     font-size: 1.25rem;
 }
 
+#signIn {
+    width: 25%;
+}
+
 #overlay {
     position: fixed;
     opacity: 0;
@@ -256,11 +280,32 @@ h4 {
 
 
 
+
 /* About us */
 
 h5 {
     font-size: x-large;
     color: #e63946;
+}
+
+
+
+
+
+
+/* Copyright text */
+
+.copyRight {
+    color: white;
+    font-size: 14px;
+
+    padding-top: 20px;
+}
+
+#copyRight {
+    color: #e63946;
+    font-family: "Racing Sans One";
+    font-size: 18px;
 }
 
 
@@ -285,60 +330,60 @@ h5 {
 
 
 
+
 /* Bar list style */
 
 .dataFromApi {
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
+}
 
+.allBarList {
+    max-width: 80%;
 }
 
 .filterSearch {
     display: flex;
-
     flex-direction: column;
 
     margin: 25px;
 }
 
-.searchBtn {
+#searchBtn {
     padding: 7px;
     margin: 15px;
 }
 
-.resetSearch {
-    padding: 7px;
-    margin: 15px;
-}
-
-.searchField {
+#searchField {
     padding: 7px;
     border-radius: 15px;
     margin: 15px;
-
 }
 
-.checkBox {
+.checkBoxContainer {
     display: flex;
     flex-direction: column;
     color: #e63946;
 }
 
-.allBarList {
-    width: 65%;
+.checkBox1 {
+    display: flex;
+    flex-direction: column;
+}
 
-    margin: 15px;
+.checkBox2 {
+    display: flex;
+    flex-direction: column;
 }
 
 li {
     list-style-type: none ;
-    margin: 35px;
     border-radius: 25px;
     border: #e63946 2px solid;
-    background-color: rgba(114, 114, 114, 0.5);
+    background-color: rgba(70, 70, 70, 0.75);
     padding: 15px;
-    width: 90%;
+    margin: 20px;
 
     text-decoration-style: solid;
 }
@@ -350,36 +395,61 @@ li {
 
 /* Responsive website for mobile device */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 800px) {
+    #computerBackgroundVid {
+        display: none;
+    }
+
+    #mobileBackgroundVid {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: -90%;
+        height: 1000px;
+
+        z-index: -1;
+    }
+
+    body {
+        background-image: url("bar2mobil.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
     .navBar {
-        height: 50px;
-        width: 45px;
+        display: flex;
+        flex-direction: column;
+
+        height: 95px;
+        width: 65px;
     }
 
     .navBar button {
-        height: 50px;
-        width: 45px;
+        height: 40px;
+        width: 65px;
+
+        font-size: 7px;
     }
 
     h1 {
-        font-size: 42px;
+        font-size: 45px;
     }
 
     .welcomeSectionHeadline {
-        font-size: 15px;
+        font-size: 25px;
     }
 
     .welcomeSectionText {
-        font-size: 12px;
+        font-size: 16px;
 
         padding-bottom: 80px;
     }
 
     .findBarBtn {
-        height: 48px;
-        width: 210px;
+        height: 58px;
+        width: 240px;
 
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .findBarHeadline {
@@ -401,25 +471,67 @@ li {
         width: 90%;
     }
 
+    h5 {
+        font-size: 18px;
+    }
+
     .aboutUs {
-        padding-top: 20px;
+        padding-top: 50px;
+        font-size: 12px;
     }
 
     .signInPopUp {
         width: 300px;
     }
 
+    .copyRight {
+        font-size: 9px;
+    }
+
+    #copyRight {
+        font-size: 13px;
+    }
+
+
+
+
+
+
+    /* Find bar page */
+
     .dataFromApi {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
-    ul {
-        margin: 0;
-        padding: 0;
+    .filterSearch {
+        display: flex;
+        width: 80%;
+    }
+
+    .checkBoxContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        font-size: 13px;
+    }
+
+    .allBarList {
+        display: flex;
+    }
+
+    #bars {
+        padding-left: 0;
     }
 
 }
+
+
+
+
+
 
 @font-face {
     font-family: 'michromaregular';
@@ -428,3 +540,5 @@ li {
     font-weight: normal;
     font-style: normal;
 }
+
+

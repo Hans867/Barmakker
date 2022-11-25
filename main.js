@@ -1,3 +1,4 @@
+
 // Find din bar
 
 const findBar = document.querySelector('.findBar button')
@@ -7,11 +8,9 @@ findBar.addEventListener('click', function () {
 })
 
 
-
-
 // Sign in pop-up
 
-const openSignInBtn = document.querySelector(`.signIn`)
+const openSignInBtn = document.querySelector(`.OpenSignIn`)
 const closeSignInBtn = document.querySelector(`.closePopUpBtn`)
 const showSignInPopUp = document.querySelector(`.signInPopUp`)
 const overlay = document.querySelector(`#overlay`)

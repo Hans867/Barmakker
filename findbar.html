@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-con" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
-    <title> BARMAKKER </title>
+    <title> Find din bar! </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +15,9 @@
 
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -25,17 +29,22 @@
 
     <nav class="navBar">
         <div class="navBarBtn1">
-            <button class="signIn"> Log in </button>
+            <button class="OpenSignIn"> Log in </button>
         </div>
+
     </nav>
 
 </header>
+
+
 
 <div class="findBarHeadlineContainer">
     <div class="findBarHeadline">
         <h2> Find din bar her! </h2>
     </div>
 </div>
+
+
 
 <main class="dataFromApi">
 
@@ -44,37 +53,42 @@
 
         <button id="searchBtn"> Søg </button>
 
-        <form class="checkBox">
+        <form class="checkBoxContainer">
 
-            <p> By </p>
-            <label for="test1"> Vesterbro </label>
-            <input type="checkbox" id="test1" name="test1" value="yes">
+            <div class="checkBox1">
+                <p> By </p>
+                <label for="test1"> Vesterbro </label>
+                <input type="radio" id="test1" name="By" value="yes">
 
-            <label for="test 2"> Nørrebro </label>
-            <input type="checkbox" id="test 2" name="test 2" value="yes">
+                <label for="test2"> Nørrebro </label>
+                <input type="radio" id="test2" name="By" value="yes">
 
-            <label for="test 3"> Østerbro </label>
-            <input type="checkbox" id="test 3" name="test 3" value="yes">
+                <label for="test3"> Østerbro </label>
+                <input type="radio" id="test3" name="By" value="yes">
 
-            <label for="test 4"> København K </label>
-            <input type="checkbox" id="test 4" name="test 4" value="yes">
+                <label for="test4"> København K </label>
+                <input type="radio" id="test4" name="By" value="yes">
+            </div>
 
-            <p> Krav </p>
-            <label for="test 5"> Spil </label>
-            <input type="checkbox" id="test 5" name="test 5" value="yes">
+            <div class="checkBox2">
+                <p> Krav </p>
+                <label for="test5"> Spil </label>
+                <input type="radio" id="test5" name="Features" value="yes">
 
-            <label for="test 6"> Billard </label>
-            <input type="checkbox" id="test 6" name="test 6" value="yes">
+                <label for="test6"> Billard </label>
+                <input type="radio" id="test6" name="Features" value="yes">
 
-            <label for="test 7"> Viser sport </label>
-            <input type="checkbox" id="test 7" name="test 7" value="yes">
+                <label for="test7"> Viser sport </label>
+                <input type="radio" id="test7" name="Features" value="yes">
 
-            <label for="test 8"> Rygning tilladt </label>
-            <input type="checkbox" id="test 8" name="test 8" value="yes">
+                <label for="test8"> Rygning tilladt </label>
+                <input type="radio" id="test8" name="Features" value="yes">
 
-            <label for="test 9"> Happy hour </label>
-            <input type="checkbox" id="test 9" name="test 9" value="yes">
+                <label for="test9"> Happy hour </label>
+                <input type="radio" id="test9" name="Features" value="yes">
+            </div>
         </form>
+
     </div>
 
     <div class="allBarList">
@@ -84,10 +98,11 @@
 </main>
 
 
+
 <div class="signInPopUp">
     <div class="popUpHeader">
         <div class="popUpTitle"> Log in </div>
-        <button class="closePopUpBtn"> &times; </button>
+        <button class="closePopUpBtn"> &times </button>
     </div>
 
     <div class="popUpText">
@@ -98,11 +113,14 @@
             <label for="email">Email:</label>
             <input type="text" id="email" name="email"><br><br>
 
-            <button id="signIn" value=" Log in " ></button>
+            <button id="signIn" value="signIn" > Log ind </button>
 
+            <button class="createUserBtn" value="createUser"> Opret bruger </button>
         </form>
     </div>
+
 </div>
+
 
 
 <div class="aboutUs">
@@ -113,9 +131,17 @@
 </div>
 
 
+
+<div class="copyRight"> <span id="copyRight"> BARMAKKER </span> © 2022 Barmakker, Inc. </div>
+
+
+
 <div id="overlay"> </div>
 
+
+
 <script src="findBarPage.js"></script>
+
 
 </body>
 

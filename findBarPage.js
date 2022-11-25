@@ -2,7 +2,7 @@ fetch('https://barmakker-api.onrender.com/johnny')
     .then(response => response.json())
     .then(function (bars) {
         renderBars(bars);
-        checkboxBars(bars)
+        // checkboxBars(bars)
         // filterBars (bars);
         searchBars (bars)
     });
@@ -22,17 +22,17 @@ function renderBars(bars) {
             <p class="bar_description"><span> Beskrivelse: </span>${bar.bar_description}</p>
             <p class="opening_hours"><span> Åbningstider: </span>${bar.opening_hours}</p>
             <p class="prices"><span> Priser: </span>${bar.prices}</p>
-            <p class="games"><span> Spil: </span>${bar.games}</p>
-            <p class="billiard"><span> Billard: </span>${bar.billiard}</p>
-            <p class="smoking_allowed"><span> Rygning indenfor: </span>${bar.smoking_allowed}</p>
-            <p class="happy_hour"><span> Happy Hour: </span>${bar.happy_hour}</p>
-            <p class="viser_sport"><span> Viser sport: </span>${bar.viser_sport}</p>
+            <p class="games"><span> Spil: </span>${bar.games === 1? '✅' : '❌'}</p>
+            <p class="billiard"><span> Billard: </span>${bar.billiard === 1? '✅' : '❌'}</p>
+            <p class="smoking_allowed"><span> Rygning indenfor: </span>${bar.smoking_allowed === 1? '✅' : '❌'}</p>
+            <p class="happy_hour"><span> Happy Hour: </span>${bar.happy_hour === 1? '✅' : '❌'}</p>
+            <p class="viser_sport"><span> Viser sport: </span>${bar.viser_sport === 1? '✅' : '❌'}</p>
         `;
         ul.appendChild(li);
     }
 }
 
-
+/*
 
 function checkboxBars (bars) {
     const vesterbro = document.querySelector('#test1')
@@ -55,6 +55,7 @@ function checkboxBars (bars) {
             debugger;
             if((vesterbro.checked) === (true) && (bar.bar_city === 'Vesterbro')) {
                 checkBoxedBars.push(bar);
+
             } if((noerrebro.checked) === (true) && (bar.bar_city === 'Nørrebro')) {
                 checkBoxedBars.push(bar);
             } if((oesterbro.checked) === (true) && (bar.bar_city === 'Østerbro')) {
@@ -72,10 +73,14 @@ function checkboxBars (bars) {
             } if((happyHour.checked) === (true) && (bar.happy_hour === 1)) {
                 checkBoxedBars.push(bar);
             }
+
+
         }
         renderBars(checkBoxedBars);
     })
 }
+
+ */
 
 /*
 
@@ -100,14 +105,41 @@ function filterBars (bars) {
 
  */
 
+let vesterbro = document.querySelector('#test1')
+let noerrebro = document.querySelector('#test2')
+let oesterbro = document.querySelector('#test3')
+let koebenhavnK = document.querySelector('#test4')
+let games = document.querySelector('#test5')
+let billard = document.querySelector('#test6')
+let sport = document.querySelector('#test7')
+let smokingAllowed = document.querySelector('#test8')
+let happyHour = document.querySelector('#test9')
+
 function searchBars (bars) {
-    const filterBtn = document.querySelector('#searchBtn')
-    filterBtn.addEventListener('click', function (){
+    const searchBtn = document.querySelector('#searchBtn')
+    searchBtn.addEventListener('click', function (){
         let searchedBars = [];
         for (i = 0; i < bars.length; i++) {
             const sBar = bars[i];
+            debugger;
             let inputSearch = document.querySelector('#searchField').value
-            if (sBar.bar_name.toLowerCase().includes(inputSearch)) {
+            const barNameIncluded = sBar.bar_name.toLowerCase().includes(inputSearch.toLowerCase());
+            const fromVesterbro = ((vesterbro.checked) === (true) && (sBar.bar_city === 'Vesterbro'));
+/*
+            const fromNoerrebro = ((noerrebro.checked) === (true) && (sBar.bar_city === 'Nørrebro'));
+            const fromOesterbro = ((oesterbro.checked) === (true) && (sBar.bar_city === 'Østerbro'));
+            const fromKoebenhavnK = ((koebenhavnK.checked) === (true) && (sBar.bar_city === 'København K'));
+            const hasGames = ((games.checked) === (true) && (sBar.bar_city === 1));
+            const hasBillard = ((billard.checked) === (true) && (sBar.bar_city === 1));
+            const hasSport = ((sport.checked) === (true) && (sBar.bar_city === 1));
+            const smokingIsAllowed = ((smokingAllowed.checked) === (true) && (sBar.bar_city === 1))
+            const hasHappyHour = ((happyHour.checked) === (true) && (sBar.bar_city === 1))
+
+ */
+
+
+            if (barNameIncluded && (fromVesterbro))
+            {
                 searchedBars.push(sBar)
             }
         }
@@ -115,7 +147,9 @@ function searchBars (bars) {
     })
 }
 
+/*
 
+ */
 
 /*
 
@@ -166,7 +200,7 @@ fetch('http://localhost:3000/bar_features/create', {
 
  */
 
-// Brugeren skal kunne log-in
+// Brugeren skal kunne create en bruger
 
 const nameInput = document.querySelector('#name')
 const emailInput = document.querySelector('#email')
@@ -195,9 +229,9 @@ createNewUser.addEventListener('click', function () {
         });
 })
 
-// sign in pop up
+// Sign in pop-up
 
-const openSignInBtn = document.querySelector(`.signIn`)
+const openSignInBtn = document.querySelector(`.OpenSignIn`)
 const closeSignInBtn = document.querySelector(`.closePopUpBtn`)
 const showSignInPopUp = document.querySelector(`.signInPopUp`)
 const overlay = document.querySelector(`#overlay`)
@@ -211,8 +245,10 @@ openSignInBtn.addEventListener
     }
 )
 
-closeSignInBtn.addEventListener(`click`, function (){
-    if (showSignInPopUp == null) return
-    showSignInPopUp.classList.remove(`active`)
-    overlay.classList.remove(`active`)
-})
+closeSignInBtn.addEventListener(`click`, function ()
+    {
+        if (showSignInPopUp == null) return
+        showSignInPopUp.classList.remove(`active`)
+        overlay.classList.remove(`active`)
+    }
+)
